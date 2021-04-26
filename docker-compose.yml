@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+    nginx:
+        image: nginx:1.19.10
+        tty: true
+        # command: bash -c "chmod -R 755 /usr/share/nginx/html"
+        # command: tail -f /dev/null
+        ports: 
+            - 80:80
+        environment: 
+            WORDPRESS_DB_HOST: mysql
+            WORDPRESS_DB_USER: root
+            WORDPRESS_DB_PASSWORD: root
+            WORDPRESS_DB_NAME: wordpress
+        volumes: 
+            - ./html:/usr/share/nginx/html
+        
+    
+        
