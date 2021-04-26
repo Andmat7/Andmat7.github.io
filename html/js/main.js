@@ -1,3 +1,4 @@
+'use strict';
 var renderer = PIXI.autoDetectRenderer(630, 410);
 renderer.view.style.position = "absolute";
 renderer.view.style.width = window.innerWidth + "px";
