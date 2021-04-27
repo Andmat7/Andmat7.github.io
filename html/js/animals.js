@@ -1,5 +1,5 @@
 var fishs = [];
-for (var i = 0; i < 20; i++) {
+for (var i = 0; i < 900; i++) {
   var fishId = i % 4;
   fishId += 1;
   var fish;

@@ -1,3 +1,3 @@
 FROM nginx:1.19.10
-VOLUME ./html /usr/share/nginx/html
+VOLUME ./html2 /usr/share/nginx/html
 
