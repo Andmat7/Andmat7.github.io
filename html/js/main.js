@@ -1,11 +1,5 @@
 'use strict';
 var renderer = PIXI.autoDetectRenderer(630, 410);
-renderer.view.style.position = "absolute";
-renderer.view.style.width = window.innerWidth + "px";
-renderer.view.style.height = window.innerHeight + "px";
-renderer.view.style.display = "block";
-document.body.appendChild(renderer.view);
-
 // create an new instance of a pixi stage
 var stage = new PIXI.Stage(0xff0000, true);
 var pondContainer = new PIXI.DisplayObjectContainer();

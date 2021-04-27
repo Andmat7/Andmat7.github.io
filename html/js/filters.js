@@ -121,4 +121,11 @@ var gui = new dat.GUI({
     crossHatchFilter,
     rgbSplitterFilter,
   ];
+  function addFilters() {
+    var filtersToApply = [];
+    for (var i = 0; i < filterCollection.length; i++) {
+      if (filtersSwitchs[i]) filtersToApply.push(filterCollection[i]);
+    }
   
+    return filtersToApply.length > 0 ? filtersToApply : null;
+  }
