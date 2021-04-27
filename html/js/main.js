@@ -1,14 +1,14 @@
 'use strict';
 var renderer = PIXI.autoDetectRenderer(630, 410);
 // create an new instance of a pixi stage
-var stage = new PIXI.Stage(0xff0000, true);
+var stage = new PIXI.Stage(0x000000, true);
 var pondContainer = new PIXI.DisplayObjectContainer();
 stage.addChild(pondContainer);
 stage.interactive = true;
-var bg = PIXI.Sprite.fromImage("displacement_BG.jpg");
-pondContainer.addChild(bg);
+// var bg = PIXI.Sprite.fromImage("displacement_BG.jpg");
+// pondContainer.addChild(bg);
 
-var padding = 100;
+var padding = 0;
 var bounds = new PIXI.Rectangle(
   -padding,
   -padding,

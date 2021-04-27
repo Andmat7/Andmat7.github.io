@@ -3,17 +3,13 @@ for (var i = 0; i < 20; i++) {
   var fishId = i % 4;
   fishId += 1;
   var fish;
-  if (fishId == 4) {
-    fish = PIXI.Sprite.fromImage("displacement_fish" + fishId + ".png");
-  } else {
-    fish = PIXI.Sprite.fromImage("light_bug.png");
-  }
+  fish = PIXI.Sprite.fromImage("light_bug.png");
 
   fish.anchor.x = fish.anchor.y = 0.5;
   pondContainer.addChild(fish);
 
   fish.direction = Math.random() * Math.PI * 2;
-  fish.speed = 2 + Math.random() * 2;
+  fish.speed =   Math.random();
   fish.turnSpeed = Math.random() - 0.8;
 
   fish.position.x = Math.random() * bounds.width;
