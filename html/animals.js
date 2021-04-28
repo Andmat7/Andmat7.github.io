@@ -1,41 +1,47 @@
-var fishs = [];
-for (var i = 0; i < 900; i++) {
-  var fishId = i % 4;
-  fishId += 1;
-  var fish;
-  fish = PIXI.Sprite.fromImage("light_bug.png");
+const animals = [];
 
-  fish.anchor.x = fish.anchor.y = 0.5;
-  pondContainer.addChild(fish);
+for (let i = 0; i < 90; i++) {
+  const animal = PIXI.Sprite.from("light_bug.png");
+  animal.anchor.set(0.5);
+  container.addChild(animal);
 
-  fish.direction = Math.random() * Math.PI * 2;
-  fish.speed =   Math.random();
-  fish.turnSpeed = Math.random() - 0.8;
+  animal.direction = Math.random() * Math.PI * 2;
+  animal.speed = Math.random() * 2;
+  animal.turnSpeed = 0.5;
 
-  fish.position.x = Math.random() * bounds.width;
-  fish.position.y = Math.random() * bounds.height;
+  animal.x = Math.random() * bounds.width;
+  animal.y = Math.random() * bounds.height;
 
+  animal.scale.set(0.05 + Math.random() * 0.09);
+  animal.rateTinker = Math.random() * Math.PI * 2;
+  animal.original = new PIXI.Point();
+  animal.original.copyFrom(animal.scale);
 
-  fish.scale.x = fish.scale.y = 0.8 + Math.random() * 0.3;
-  fishs.push(fish);
+  animals.push(animal);
 }
-function fishAnimation(fishs, bounds) {
-  for (var i = 0; i < fishs.length; i++) {
-    var fish = fishs[i];
 
-    fish.direction += fish.turnSpeed * 0.01;
-    fish.position.x += Math.sin(fish.direction) * fish.speed;
-    fish.position.y += Math.cos(fish.direction) * fish.speed;
+function animalAnimation(animals, bounds, count) {
+  for (let i = 0; i < animals.length; i++) {
+    const animal = animals[i];
 
-    fish.rotation = -fish.direction - Math.PI / 2;
+    animal.direction += animal.turnSpeed * 0.01;
+    animal.x += Math.sin(animal.direction) * animal.speed;
+    animal.y += Math.cos(animal.direction) * animal.speed;
 
-    // wrap..
-    if (fish.position.x < bounds.x) fish.position.x += bounds.width;
-    if (fish.position.x > bounds.x + bounds.width)
-      fish.position.x -= bounds.width;
+    animal.rotation = -animal.direction - Math.PI / 2;
+    animal.scale.x = animal.original.x + Math.sin(count + animal.rateTinker) * 0.04;
 
-    if (fish.position.y < bounds.y) fish.position.y += bounds.height;
-    if (fish.position.y > bounds.y + bounds.height)
-      fish.position.y -= bounds.height;
+    // wrap the animal around as the crawl
+    if (animal.x < bounds.x) {
+      animal.x += bounds.width;
+    } else if (animal.x > bounds.x + bounds.width) {
+      animal.x -= bounds.width;
+    }
+
+    if (animal.y < bounds.y) {
+      animal.y += bounds.height;
+    } else if (animal.y > bounds.y + bounds.height) {
+      animal.y -= bounds.height;
+    }
   }
 }
