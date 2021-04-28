@@ -19,7 +19,6 @@ for (let i = 0; i < 90; i++) {
 
   animals.push(animal);
 }
-
 function animalAnimation(animals, bounds, count) {
   for (let i = 0; i < animals.length; i++) {
     const animal = animals[i];
