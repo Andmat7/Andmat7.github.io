@@ -1,4 +1,8 @@
-const app = new PIXI.Application();
+const app = new PIXI.Application({
+  height: window.innerHeight * 1.99,
+  width: window.innerWidth * 1.99,
+  resolution: 0.5,
+});
 document.body.appendChild(app.view);
 app.stage.interactive = true;
 const container = new PIXI.Container();
@@ -17,5 +21,3 @@ bg.height = app.screen.height;
 bg.alpha = 0.4;
 
 container.addChild(bg);
-
-

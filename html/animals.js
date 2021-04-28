@@ -12,7 +12,7 @@ for (let i = 0; i < 90; i++) {
   animal.x = Math.random() * bounds.width;
   animal.y = Math.random() * bounds.height;
 
-  animal.scale.set(0.05 + Math.random() * 0.09);
+  animal.scale.set(0.07 + Math.random() * 0.09);
   animal.rateTinker = Math.random() * Math.PI * 2;
   animal.original = new PIXI.Point();
   animal.original.copyFrom(animal.scale);
