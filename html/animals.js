@@ -1,12 +1,13 @@
 const animals = [];
 
-for (let i = 0; i < 90; i++) {
+for (let i = 0; i < 150; i++) {
   const animal = PIXI.Sprite.from("light_bug.png");
   animal.anchor.set(0.5);
   container.addChild(animal);
 
   animal.direction = Math.random() * Math.PI * 2;
-  animal.speed = Math.random() * 2;
+  let random = Math.random();
+  animal.speed = 0.2 + random*.7;
   animal.turnSpeed = 0.5;
 
   animal.x = Math.random() * bounds.width;
@@ -24,13 +25,13 @@ function animalAnimation(animals, bounds, count) {
     const animal = animals[i];
 
     animal.direction += animal.turnSpeed * 0.01;
-    animal.x += Math.sin(animal.direction) * animal.speed;
-    animal.y += Math.cos(animal.direction) * animal.speed;
+    animal.x += Math.sin(animal.direction) * animal.speed*2;
+    animal.y += Math.cos(animal.direction) * animal.speed*1;
 
     animal.rotation = -animal.direction - Math.PI / 2;
-    animal.scale.x = animal.original.x + Math.sin(count + animal.rateTinker) * 0.04;
+    animal.scale.x =
+      animal.original.x + Math.sin(count + animal.rateTinker) * 0.01;
 
-    // wrap the animal around as the crawl
     if (animal.x < bounds.x) {
       animal.x += bounds.width;
     } else if (animal.x > bounds.x + bounds.width) {

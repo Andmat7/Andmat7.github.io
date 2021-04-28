@@ -1,10 +1,13 @@
 const canvas = document.getElementById("mycanvas");
 const renderer = new PIXI.Renderer({
   view: canvas,
-  height: window.innerHeight ,
-  width: window.innerWidth ,
+  height: window.innerHeight,
+  width: window.innerWidth,
+  resolution: 2,
+  autoDensity: true,
 });
 const container = new PIXI.Container();
+container.interactive = true;
 const padding = 100;
 const bounds = new PIXI.Rectangle(
   -padding,
