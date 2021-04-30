@@ -1,7 +1,8 @@
 const animals = [];
 
 for (let i = 0; i < 150; i++) {
-  const animal = PIXI.Sprite.from("light_bug.png");
+  var animalId = i % 3+1;
+  const animal = PIXI.Sprite.from("animal"+animalId+".png");
   animal.anchor.set(0.5);
   container.addChild(animal);
 
