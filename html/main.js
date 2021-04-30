@@ -21,9 +21,11 @@ const bounds = new PIXI.Rectangle(
 // bg.alpha = 0.4;
 // container.addChild(bg);
 const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
+logo.width=60;
+logo.height=60;
 // logo.width = window.innerWidth;
 // logo.height = window.innerHeight;
 container.addChild(logo);
-logo.position.y = window.innerHeight - 150;
+logo.position.y = window.innerHeight - 80;
 logo.position.x = 12;
 
