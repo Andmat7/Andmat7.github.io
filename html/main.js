@@ -16,6 +16,12 @@ const bounds = new PIXI.Rectangle(
   window.innerHeight + padding * 2
 );
 const bg = PIXI.Sprite.from("displacement_BG.jpg");
+const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
+// logo.width = window.innerWidth;
+// logo.height = window.innerHeight;
+container.addChild(logo);
+logo.position.y = window.innerHeight - 150;
+logo.position.x = 12;
 bg.width = window.innerWidth;
 bg.height = window.innerHeight;
 bg.alpha = 0.4;
