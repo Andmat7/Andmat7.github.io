@@ -24,7 +24,7 @@ const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
 //logo.anchor.setTo(0.5, 0.5);
 // logo.width = window.innerWidth;
 // logo.height = window.innerHeight;
-logo.scale.set(.5);
+logo.scale.set(.4);
 container.addChild(logo);
 logo.position.y = window.innerHeight - 80;
 logo.position.x = 12;
