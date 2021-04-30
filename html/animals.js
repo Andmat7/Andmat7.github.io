@@ -47,7 +47,9 @@ function animalAnimation(animals, bounds, count) {
 
     animal.rotation = -animal.direction - Math.PI / 2;
     animal.scale.x =
-      animal.original.x + Math.sin(count * animal.rateTinker) * 0.03;
+      animal.original.x + Math.sin(count * animal.rateTinker) * 0.02;
+    animal.scale.y =
+      animal.original.y + Math.cos(count * animal.rateTinker) * 0.01;
     if (animal.x < bounds.x) {
       animal.x += bounds.width;
     } else if (animal.x > bounds.x + bounds.width) {
@@ -63,17 +65,13 @@ function animalAnimation(animals, bounds, count) {
 }
 function onButtonDown() {
   console.log(this.rateTinker);
-  this.rateTinker = this.rateTinker * 15;
-  this.speed = this.speed * 2;
-
+  this.rateTinker = this.rateTinker * 4;
+  this.speed = this.speed * 1.2;
 }
 
-function onButtonUp() {
+function onButtonUp() {}
 
-}
-
-function onButtonOver() {
-}
+function onButtonOver() {}
 
 function onButtonOut() {
   this.rateTinker = 1;
