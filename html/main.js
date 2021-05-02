@@ -1,12 +1,28 @@
+function width() {
+  return (
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth ||
+    0
+  );
+}
+
+function height() {
+  return (
+    window.innerHeight ||
+    document.documentElement.clientHeight ||
+    document.body.clientHeight ||
+    0
+  );
+}
 const canvas = document.getElementById("mycanvas");
 const renderer = new PIXI.Renderer({
   view: canvas,
   height: window.innerHeight,
-  width: window.innerWidth,
-  resolution: 2,
+  width: document.documentElement.clientWidth,
   autoDensity: true,
 });
-const container = new PIXI.Container();
+const container = new PIXI.Container({ resizeTo: window });
 container.interactive = true;
 const padding = 100;
 const bounds = new PIXI.Rectangle(
@@ -24,8 +40,15 @@ const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
 //logo.anchor.setTo(0.5, 0.5);
 // logo.width = window.innerWidth;
 // logo.height = window.innerHeight;
-logo.scale.set(.4);
+logo.scale.set(0.4);
 container.addChild(logo);
 logo.position.y = window.innerHeight - 80;
 logo.position.x = 12;
 
+window.onresize = resize;
+function resize() {
+  bounds.width = width() + padding * 2;
+  bounds.height = height() + padding * 2;
+  renderer.resize(window.innerWidth, window.innerHeight);
+
+}
