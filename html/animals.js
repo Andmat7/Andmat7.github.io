@@ -1,7 +1,7 @@
 const animals = [];
 
 for (let i = 0; i < 150; i++) {
-  var animalId = (i % 4) + 1;
+  var animalId = (i % 48) + 1;
   const animal = PIXI.Sprite.from("animal" + animalId + ".png");
   animal.anchor.set(0.5);
   container.addChild(animal);
@@ -24,14 +24,15 @@ for (let i = 0; i < 150; i++) {
     .on("mouseout", onButtonOut);
   animal.direction = Math.random() * Math.PI * 2;
   let random = Math.random();
-  animal.speed = 0.2 + random * 0.7;
+  animal.speed = 0.05 + random * 0.5;
   animal.turnSpeed = 0.5;
 
   animal.x = Math.random() * bounds.width;
   animal.y = Math.random() * bounds.height;
-
   animal.scale.set(0.07 + Math.random() * 0.09);
   animal.rateTinker = 1;
+  animal.palpitationOffset = Math.random();
+  animal.palpitationRate = Math.random();
   animal.original = new PIXI.Point();
   animal.original.copyFrom(animal.scale);
 
@@ -47,9 +48,19 @@ function animalAnimation(animals, bounds, count) {
 
     animal.rotation = -animal.direction - Math.PI / 2;
     animal.scale.x =
-      animal.original.x + Math.sin(count * animal.rateTinker) * 0.02;
+      animal.original.x +
+      Math.sin(
+        (count * animal.rateTinker + animal.palpitationOffset * 2 * Math.PI) /
+          (1 + animal.palpitationRate)
+      ) *
+        0.02;
     animal.scale.y =
-      animal.original.y + Math.cos(count * animal.rateTinker) * 0.01;
+      animal.original.y +
+      Math.cos(
+        (count * animal.rateTinker + animal.palpitationOffset * 2 * Math.PI) /
+          (1 + animal.palpitationRate)
+      ) *
+        0.01;
     if (animal.x < bounds.x) {
       animal.x += bounds.width;
     } else if (animal.x > bounds.x + bounds.width) {
