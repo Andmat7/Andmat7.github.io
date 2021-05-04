@@ -36,19 +36,15 @@ const bounds = new PIXI.Rectangle(
 // bg.height = window.innerHeight;
 // bg.alpha = 0.4;
 // container.addChild(bg);
-const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
-//logo.anchor.setTo(0.5, 0.5);
-// logo.width = window.innerWidth;
-// logo.height = window.innerHeight;
-logo.scale.set(0.4);
-container.addChild(logo);
-logo.position.y = window.innerHeight - 80;
-logo.position.x = 12;
+function fullScreen() {
+  alert("algo")
+  //document.requestFullscreen();
+}
+
 
 window.onresize = resize;
 function resize() {
   bounds.width = width() + padding * 2;
   bounds.height = height() + padding * 2;
   renderer.resize(window.innerWidth, window.innerHeight);
-
 }

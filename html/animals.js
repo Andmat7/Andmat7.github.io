@@ -40,7 +40,7 @@ for (let i = 0; i < totalanimals; i++) {
 function animalAnimation(animals, bounds, count) {
   for (let i = 0; i < animals.length; i++) {
     const animal = animals[i];
-   animal.direction += animal.turnSpeed * 0.01;
+    animal.direction += animal.turnSpeed * 0.01;
     //animal.direction += 2 * Math.PI;
     //animal.x += animalXPosition(1, 2 * animal.direction);
     animal.x += animalXPosition(animal.speed, 2 * animal.direction);
@@ -92,3 +92,16 @@ function onButtonOver() {}
 function onButtonOut() {
   this.rateTinker = 1;
 }
+const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
+//logo.on("mousedown", fullScreen).on("touchstart", fullScreen);
+//logo.anchor.setTo(0.5, 0.5);
+// logo.width = window.innerWidth;
+// logo.height = window.innerHeight;
+logo.scale.set(0.4);
+logo.interactive = true;
+container.addChild(logo);
+logo.position.y = window.innerHeight - 80;
+logo.position.x = 12;
+logo.on("click", function () {
+  canvas.requestFullscreen();
+});
