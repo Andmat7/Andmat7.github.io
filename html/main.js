@@ -37,13 +37,14 @@ const bounds = new PIXI.Rectangle(
 // bg.alpha = 0.4;
 // container.addChild(bg);
 function fullScreen() {
-  alert("algo")
+  alert("algo");
   //document.requestFullscreen();
 }
 
-
 window.onresize = resize;
 function resize() {
+  logo.position.y = window.innerHeight - 80;
+  logo.position.x = 12;
   bounds.width = width() + padding * 2;
   bounds.height = height() + padding * 2;
   renderer.resize(window.innerWidth, window.innerHeight);
