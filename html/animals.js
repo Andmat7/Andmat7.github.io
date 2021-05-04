@@ -3,7 +3,7 @@ console.log();
 const totalanimals = parseInt(window.innerWidth*window.innerHeight/8500);
 console.log(totalanimals)
 for (let i = 0; i < totalanimals; i++) {
-  var animalId = parseInt(Math.random() * 47);
+  var animalId = parseInt(Math.random() * 44);
   //animalId = 47;
   const animal = PIXI.Sprite.from("animal" + animalId + ".png");
   animal.anchor.set(0.5);
