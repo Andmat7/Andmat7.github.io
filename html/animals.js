@@ -19,7 +19,6 @@ for (let i = 0; i < totalanimals; i++) {
     .on("mouseover", onButtonOver)
     // set the mouseout callback...
     .on("mouseout", onButtonOut);
-
   //animal.direction = 0.5 * Math.PI * 2;
   animal.direction = Math.random() * 8 * 0.25 * Math.PI;
   let random = Math.random();
@@ -34,7 +33,12 @@ for (let i = 0; i < totalanimals; i++) {
   animal.scale.set(0.09);
   animal.original = new PIXI.Point();
   animal.original.copyFrom(animal.scale);
-  animal.alpha = 0.1 + (i / totalanimals) * 0.9;
+  if (i<totalanimals/2) {
+    animal.alpha = 0.3;
+  }else{
+    animal.alpha = 1;
+  }
+  
   animals.push(animal);
 }
 function animalAnimation(animals, bounds, count) {
