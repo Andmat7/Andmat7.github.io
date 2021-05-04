@@ -1,9 +1,9 @@
 const animals = [];
-const totalanimals = 110;
+const totalanimals = 120;
 for (let i = 0; i < totalanimals; i++) {
-  var animalId = (i % 48) + 1;
+  var animalId = parseInt(Math.random() * 47);
+  //animalId = 47;
   const animal = PIXI.Sprite.from("animal" + animalId + ".png");
-  //const animal = PIXI.Sprite.from("animal1.png");
   animal.anchor.set(0.5);
   container.addChild(animal);
   animal.interactive = true;
@@ -15,23 +15,23 @@ for (let i = 0; i < totalanimals; i++) {
     .on("touchend", onButtonUp)
     .on("mouseupoutside", onButtonUp)
     .on("touchendoutside", onButtonUp)
-
     // set the mouseover callback...
     .on("mouseover", onButtonOver)
-
     // set the mouseout callback...
     .on("mouseout", onButtonOut);
-  animal.direction = Math.random() * Math.PI * 2;
-  let random = Math.random();
-  animal.speed = 0.05 + random * 0.5;
-  animal.turnSpeed = 0.5;
 
+  //animal.direction = 0.5 * Math.PI * 2;
+  animal.direction = Math.random() * 8 * 0.25 * Math.PI;
+  let random = Math.random();
+  animal.speed = 0.05 + random * 0.1;
+  animal.turnSpeed = 0.0;
   animal.x = Math.random() * bounds.width;
   animal.y = Math.random() * bounds.height;
-  animal.scale.set(0.07 + Math.random() * 0.09);
   animal.rateTinker = 1;
   animal.palpitationOffset = Math.random();
   animal.palpitationRate = Math.random();
+  animal.scale.set(0.07 + Math.random() * 0.09);
+  animal.scale.set(0.09);
   animal.original = new PIXI.Point();
   animal.original.copyFrom(animal.scale);
   animal.alpha = 0.1 + (i / totalanimals) * 0.9;
@@ -41,18 +41,17 @@ function animalAnimation(animals, bounds, count) {
   for (let i = 0; i < animals.length; i++) {
     const animal = animals[i];
     animal.direction += animal.turnSpeed * 0.01;
-    //animal.direction += 2 * Math.PI;
-    //animal.x += animalXPosition(1, 2 * animal.direction);
-    animal.x += animalXPosition(animal.speed, 2 * animal.direction);
-    animal.y += animalYPosition(animal.speed, 2 * animal.direction);
+    animal.x += animalXPosition(animal.speed, animal.direction);
+    animal.y += animalYPosition(animal.speed, animal.direction);
+
     animal.blendMode = PIXI.BLEND_MODES.LIGHTEN;
-    animal.rotation = -animal.direction - Math.PI / 2;
+    animal.rotation = animal.direction + 1 * 0.5 * Math.PI;
     animal.scale.x =
       animal.original.x +
       Math.sin(
-        count * animal.speed * 3 + animal.palpitationOffset * 2 * Math.PI
+        count * animal.speed * 8 + animal.palpitationOffset * 2 * Math.PI
       ) *
-        0.02;
+        0.015;
     // animal.scale.y =
     //   animal.original.y +
     //   Math.cos(
@@ -73,11 +72,13 @@ function animalAnimation(animals, bounds, count) {
     }
   }
 }
-function animalXPosition(speed, angle) {
-  return Math.sin(angle) * speed * 2;
+function animalXPosition(speed, radians) {
+  let x = Math.sin(radians) * speed * 2;
+  return x;
 }
-function animalYPosition(speed, angle) {
-  return Math.cos(angle) * speed * 2;
+function animalYPosition(speed, radians) {
+  let y = -Math.cos(radians) * speed * 1;
+  return y;
 }
 function onButtonDown() {
   console.log(this.rateTinker);
