@@ -1,5 +1,5 @@
 const animals = [];
-const totalanimals = parseInt(window.innerWidth*window.innerHeight/8500);
+const totalanimals = parseInt((window.innerWidth * window.innerHeight) / 8500);
 for (let i = 0; i < totalanimals; i++) {
   var animalId = parseInt(Math.random() * 44);
   //animalId = 47;
@@ -22,7 +22,12 @@ for (let i = 0; i < totalanimals; i++) {
   //animal.direction = 0.5 * Math.PI * 2;
   animal.direction = Math.random() * 8 * 0.25 * Math.PI;
   let random = Math.random();
-  animal.originalspeed = 0.08 + random * 0.3;
+  if (animalId > 21 && animalId < 36) {
+    animal.originalspeed = 0.08 + random * 0.1;
+  } else {
+    animal.originalspeed = 0.1 + random * 0.8;
+  }
+
   animal.speed = animal.originalspeed;
   animal.turnSpeed = 0.0;
   animal.x = Math.random() * bounds.width;
@@ -34,12 +39,12 @@ for (let i = 0; i < totalanimals; i++) {
   animal.scale.set(0.09);
   animal.original = new PIXI.Point();
   animal.original.copyFrom(animal.scale);
-  if (i<totalanimals/2) {
+  if (i < totalanimals / 2) {
     animal.alpha = 0.3;
-  }else{
+  } else {
     animal.alpha = 1;
   }
-  
+
   animals.push(animal);
 }
 function animalAnimation(animals, bounds, count) {
@@ -86,7 +91,7 @@ function animalYPosition(speed, radians) {
   return y;
 }
 function onButtonDown() {
-  this.rateTinker =  4;
+  this.rateTinker = 4;
   this.speed = this.originalspeed * 4;
 }
 
