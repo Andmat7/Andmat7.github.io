@@ -86,9 +86,8 @@ function animalYPosition(speed, radians) {
   return y;
 }
 function onButtonDown() {
-  console.log(this.rateTinker);
-  this.rateTinker = this.rateTinker * 4;
-  this.speed = this.speed * 4;
+  this.rateTinker =  4;
+  this.speed = this.originalspeed * 4;
 }
 
 function onButtonUp() {}
