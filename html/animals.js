@@ -1,17 +1,16 @@
 const animals = [];
-
-for (let i = 0; i < 150; i++) {
+const totalanimals = 110;
+for (let i = 0; i < totalanimals; i++) {
   var animalId = (i % 48) + 1;
   const animal = PIXI.Sprite.from("animal" + animalId + ".png");
+  //const animal = PIXI.Sprite.from("animal1.png");
   animal.anchor.set(0.5);
   container.addChild(animal);
   animal.interactive = true;
-  // set the mousedown and touchstart callback...
+
   animal
     .on("mousedown", onButtonDown)
     .on("touchstart", onButtonDown)
-
-    // set the mouseup and touchend callback...
     .on("mouseup", onButtonUp)
     .on("touchend", onButtonUp)
     .on("mouseupoutside", onButtonUp)
@@ -35,32 +34,32 @@ for (let i = 0; i < 150; i++) {
   animal.palpitationRate = Math.random();
   animal.original = new PIXI.Point();
   animal.original.copyFrom(animal.scale);
-
+  animal.alpha = 0.1 + (i / totalanimals) * 0.9;
   animals.push(animal);
 }
 function animalAnimation(animals, bounds, count) {
   for (let i = 0; i < animals.length; i++) {
     const animal = animals[i];
-
-    animal.direction += animal.turnSpeed * 0.01;
-    animal.x += Math.sin(animal.direction) * animal.speed * 2;
-    animal.y += Math.cos(animal.direction) * animal.speed * 1;
-
+   animal.direction += animal.turnSpeed * 0.01;
+    //animal.direction += 2 * Math.PI;
+    //animal.x += animalXPosition(1, 2 * animal.direction);
+    animal.x += animalXPosition(animal.speed, 2 * animal.direction);
+    animal.y += animalYPosition(animal.speed, 2 * animal.direction);
+    animal.blendMode = PIXI.BLEND_MODES.LIGHTEN;
     animal.rotation = -animal.direction - Math.PI / 2;
     animal.scale.x =
       animal.original.x +
       Math.sin(
-        (count * animal.rateTinker + animal.palpitationOffset * 2 * Math.PI) /
-          (1 + animal.palpitationRate)
+        count * animal.speed * 3 + animal.palpitationOffset * 2 * Math.PI
       ) *
         0.02;
-    animal.scale.y =
-      animal.original.y +
-      Math.cos(
-        (count * animal.rateTinker + animal.palpitationOffset * 2 * Math.PI) /
-          (1 + animal.palpitationRate)
-      ) *
-        0.01;
+    // animal.scale.y =
+    //   animal.original.y +
+    //   Math.cos(
+    //     (count * animal.rateTinker + animal.palpitationOffset * 2 * Math.PI) /
+    //       (1 + animal.palpitationRate)
+    //   ) *
+    //     0.01;
     if (animal.x < bounds.x) {
       animal.x += bounds.width;
     } else if (animal.x > bounds.x + bounds.width) {
@@ -73,6 +72,12 @@ function animalAnimation(animals, bounds, count) {
       animal.y -= bounds.height;
     }
   }
+}
+function animalXPosition(speed, angle) {
+  return Math.sin(angle) * speed * 2;
+}
+function animalYPosition(speed, angle) {
+  return Math.cos(angle) * speed * 2;
 }
 function onButtonDown() {
   console.log(this.rateTinker);
