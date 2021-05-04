@@ -22,7 +22,8 @@ for (let i = 0; i < totalanimals; i++) {
   //animal.direction = 0.5 * Math.PI * 2;
   animal.direction = Math.random() * 8 * 0.25 * Math.PI;
   let random = Math.random();
-  animal.speed = 0.08 + random * 0.3;
+  animal.originalspeed = 0.08 + random * 0.3;
+  animal.speed = animal.originalspeed;
   animal.turnSpeed = 0.0;
   animal.x = Math.random() * bounds.width;
   animal.y = Math.random() * bounds.height;
@@ -87,7 +88,7 @@ function animalYPosition(speed, radians) {
 function onButtonDown() {
   console.log(this.rateTinker);
   this.rateTinker = this.rateTinker * 4;
-  this.speed = this.speed * 1.2;
+  this.speed = this.speed * 4;
 }
 
 function onButtonUp() {}
@@ -96,6 +97,7 @@ function onButtonOver() {}
 
 function onButtonOut() {
   this.rateTinker = 1;
+  this.speed = this.originalspeed;
 }
 const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
 //logo.on("mousedown", fullScreen).on("touchstart", fullScreen);
