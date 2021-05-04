@@ -25,7 +25,7 @@ for (let i = 0; i < totalanimals; i++) {
   if (animalId > 21 && animalId < 36) {
     animal.originalspeed = 0.08 + random * 0.1;
   } else {
-    animal.originalspeed = 0.1 + random * 0.8;
+    animal.originalspeed = 0.1 + random * 0.5;
   }
 
   animal.speed = animal.originalspeed;
