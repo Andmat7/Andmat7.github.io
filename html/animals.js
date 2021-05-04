@@ -1,5 +1,7 @@
 const animals = [];
-const totalanimals = 120;
+console.log();
+const totalanimals = parseInt(window.innerWidth*window.innerHeight/8500);
+console.log(totalanimals)
 for (let i = 0; i < totalanimals; i++) {
   var animalId = parseInt(Math.random() * 47);
   //animalId = 47;
@@ -23,7 +25,7 @@ for (let i = 0; i < totalanimals; i++) {
   //animal.direction = 0.5 * Math.PI * 2;
   animal.direction = Math.random() * 8 * 0.25 * Math.PI;
   let random = Math.random();
-  animal.speed = 0.05 + random * 0.1;
+  animal.speed = 0.08 + random * 0.1;
   animal.turnSpeed = 0.0;
   animal.x = Math.random() * bounds.width;
   animal.y = Math.random() * bounds.height;
@@ -98,10 +100,10 @@ const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
 //logo.anchor.setTo(0.5, 0.5);
 // logo.width = window.innerWidth;
 // logo.height = window.innerHeight;
-logo.scale.set(0.4);
+logo.scale.set(0.2);
 logo.interactive = true;
 container.addChild(logo);
-logo.position.y = window.innerHeight - 80;
+logo.position.y = window.innerHeight - 40;
 logo.position.x = 12;
 logo.on("click", function () {
   canvas.requestFullscreen();
