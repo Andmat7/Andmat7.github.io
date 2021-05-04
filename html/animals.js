@@ -100,10 +100,10 @@ const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
 //logo.anchor.setTo(0.5, 0.5);
 // logo.width = window.innerWidth;
 // logo.height = window.innerHeight;
-logo.scale.set(0.2);
+logo.scale.set(0.25);
 logo.interactive = true;
 container.addChild(logo);
-logo.position.y = window.innerHeight - 40;
+logo.position.y = window.innerHeight - 60;
 logo.position.x = 12;
 logo.on("click", function () {
   canvas.requestFullscreen();
