@@ -1,0 +1,73 @@
+{
+	"meta": {
+		"image": "bugs.png",
+		"size": {"w":2159,"h":1428},
+		"scale": "1"
+	},
+	"frames": {
+		"animal41.png":
+		{
+			"frame": {"x":0,"y":0,"w":878,"h":421},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":878,"h":421},
+			"sourceSize": {"w":878,"h":421}
+		},
+		"animal39.png":
+		{
+			"frame": {"x":0,"y":421,"w":827,"h":587},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":827,"h":587},
+			"sourceSize": {"w":827,"h":587}
+		},
+		"animal36.png":
+		{
+			"frame": {"x":878,"y":0,"w":797,"h":519},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":797,"h":519},
+			"sourceSize": {"w":797,"h":519}
+		},
+		"animal40.png":
+		{
+			"frame": {"x":878,"y":519,"w":794,"h":437},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":794,"h":437},
+			"sourceSize": {"w":794,"h":437}
+		},
+		"animal43.png":
+		{
+			"frame": {"x":0,"y":1008,"w":702,"h":420},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":702,"h":420},
+			"sourceSize": {"w":702,"h":420}
+		},
+		"animal38.png":
+		{
+			"frame": {"x":702,"y":1008,"w":685,"h":403},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":685,"h":403},
+			"sourceSize": {"w":685,"h":403}
+		},
+		"animal44.png":
+		{
+			"frame": {"x":1675,"y":0,"w":484,"h":367},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":484,"h":367},
+			"sourceSize": {"w":484,"h":367}
+		},
+		"animal42.png":
+		{
+			"frame": {"x":1675,"y":367,"w":467,"h":219},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":467,"h":219},
+			"sourceSize": {"w":467,"h":219}
+		}
+	}
+}

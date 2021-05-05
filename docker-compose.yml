@@ -7,4 +7,4 @@ services:
         ports: 
             - 80:80
         volumes: 
-            - ./html:/usr/share/nginx/html
+            - ./genomica:/usr/share/nginx/html
