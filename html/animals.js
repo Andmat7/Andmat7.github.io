@@ -103,16 +103,3 @@ function onButtonOut() {
   this.rateTinker = 1;
   this.speed = this.originalspeed;
 }
-const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
-//logo.on("mousedown", fullScreen).on("touchstart", fullScreen);
-//logo.anchor.setTo(0.5, 0.5);
-// logo.width = window.innerWidth;
-// logo.height = window.innerHeight;
-logo.scale.set(0.25);
-logo.interactive = true;
-container.addChild(logo);
-logo.position.y = window.innerHeight - 60;
-logo.position.x = 12;
-logo.on("click", function () {
-  canvas.requestFullscreen();
-});

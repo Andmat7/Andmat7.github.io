@@ -31,15 +31,6 @@ const bounds = new PIXI.Rectangle(
   window.innerWidth + padding * 2,
   window.innerHeight + padding * 2
 );
-// const bg = PIXI.Sprite.from("displacement_BG.jpg");
-// bg.width = window.innerWidth;
-// bg.height = window.innerHeight;
-// bg.alpha = 0.4;
-// container.addChild(bg);
-function fullScreen() {
-  alert("algo");
-  //document.requestFullscreen();
-}
 
 window.onresize = resize;
 function resize() {
