@@ -5,7 +5,7 @@ for (let i = 0; i < totalanimals; i++) {
   //animalId = 47;
   const animal = PIXI.Sprite.from("animal" + animalId + ".png");
   animal.anchor.set(0.5);
-  container.addChild(animal);
+  zoo.addChild(animal);
   animal.interactive = true;
 
   animal

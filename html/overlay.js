@@ -1,7 +1,7 @@
 const logo = PIXI.Sprite.from("genomica_logo_transparent.png");
 logo.scale.set(0.25);
 logo.interactive = true;
-container.addChild(logo);
+zoo.addChild(logo);
 logo.position.y = window.innerHeight - 60;
 logo.position.x = 12;
 logo.on("click", function () {
@@ -12,21 +12,21 @@ let overlay = new PIXI.Container();
 overlay.width = window.innerWidth;
 overlay.height = window.innerHeight;
 
-// var BlurFilter = new PIXI.filters.BlurFilter(
-//   15,
-//   10,
-//   PIXI.settings.FILTER_RESOLUTION,
-//   5
-// );
+var BlurFilter = new PIXI.filters.BlurFilter(
+  15,
+  10,
+  PIXI.settings.FILTER_RESOLUTION,
+  5
+);
 
 // // Blurs whatever is rendered by the container
-// overlay.filters = [BlurFilter];
+overlay.filters = [BlurFilter];
 
 // Only the contents within a circle at the center should be rendered onto the screen.
-// overlay.mask = new PIXI.Graphics()
-//   .beginFill(0xff0000)
-//   .drawRect(10, 10, 1000, 1000)
-//   .endFill();
+overlay.mask = new PIXI.Graphics()
+  .beginFill(0xff0000)
+  .drawRect(10, 10, 1000, 1000)
+  .endFill();
 
 let text = new PIXI.Text("SPECIES", {
   fontFamily: "andale",
@@ -34,5 +34,6 @@ let text = new PIXI.Text("SPECIES", {
   fill: "white",
   align: "center",
 });
+text.x = 100;
 overlay.addChild(text);
 container.addChild(overlay);

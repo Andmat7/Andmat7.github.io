@@ -23,7 +23,8 @@ const renderer = new PIXI.Renderer({
   autoDensity: true,
 });
 const container = new PIXI.Container({ resizeTo: window });
-container.interactive = true;
+const zoo = new PIXI.Container({ resizeTo: window });
+zoo.interactive = true;
 const padding = 100;
 const bounds = new PIXI.Rectangle(
   -padding,
@@ -31,7 +32,7 @@ const bounds = new PIXI.Rectangle(
   window.innerWidth + padding * 2,
   window.innerHeight + padding * 2
 );
-
+container.addChild(zoo);
 window.onresize = resize;
 function resize() {
   logo.position.y = window.innerHeight - 80;
