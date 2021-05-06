@@ -3,7 +3,7 @@
 
     SPECIES
 
-    
+
 
     Gushi Larvae
     Sushi/Snakes/Avacado/Eggs
@@ -13,10 +13,6 @@
 
     White Blazer Bug
     Skies/Cells/Ligtning
-
-
-
-
 
 
 
