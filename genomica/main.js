@@ -5,7 +5,7 @@
 
 
 
-    Gushi Larvae
+    Sushi Larvae
     Sushi/Snakes/Avacado/Eggs
     
     Purple DNA Jelly
