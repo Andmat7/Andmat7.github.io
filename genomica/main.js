@@ -22,7 +22,7 @@
 
 
 
-    CONCEPT, DESIGN & Audio
+    CONCEPT, DESIGN & AUDIO
     Voltaine
 
     DEVELOPMENT
